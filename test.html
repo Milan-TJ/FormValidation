@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Validation Example</title>
+  <style>
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Registration Form</h2>
+
+  <form id="registrationForm" onsubmit="return validateForm()">
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username">
+    <span id="usernameError" class="error"></span>
+
+    <br>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email">
+    <span id="emailError" class="error"></span>
+
+    <br>
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password">
+    <span id="passwordError" class="error"></span>
+
+    <br>
+
+    <input type="submit" value="Register">
+  </form>
+
+  <script>
+    function validateForm() {
+      // Get form input values
+      var username = document.getElementById('username').value;
+      var email = document.getElementById('email').value;
+      var password = document.getElementById('password').value;
+
+      // Reset all error messages
+      document.getElementById('usernameError').textContent = '';
+      document.getElementById('emailError').textContent = '';
+      document.getElementById('passwordError').textContent = '';
+
+      // Collect error messages
+      var errors = [];
+
+      // Validate username
+      if (username.length < 3) {
+        errors.push('Username must be at least 3 characters');
+        document.getElementById('usernameError').textContent = 'Username must be at least 3 characters';
+      }
+
+      // Validate email
+      var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) {
+        errors.push('Invalid email address');
+        document.getElementById('emailError').textContent = 'Invalid email address';
+      }
+
+      // Validate password
+      if (password.length < 8) {
+        errors.push('Password must be at least 8 characters');
+        document.getElementById('passwordError').textContent = 'Password must be at least 8 characters';
+      }
+
+      // Display error messages
+      if (errors.length > 0) {
+        return false;
+      }
+
+      // Form is valid
+      alert('Form submitted successfully!');
+      return true;
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body> 
+    <div class="main">
+            <h1>Sign Up</h1>
+            <form class="details" id="details" action="">
+                <label for="name">Name<font color="red">*</font>:</label>
+                <input type="text" id="name" name="name" >
+                <p class="validation" id="nameVal"></p>
+                <label for="email">Email Address<font color="red">*</font>:</label>
+                <input type="email" id="email" name="email" >
+                <p class="validation" id="emailVal"> </p>
+                <label for="phoneNumber">Phone number<font color="red">*</font>:</label>
+                <input type="tel" id="phoneNumber" name="phoneNumber" >
+                <p class="validation" id="phnVal"> </p>
+                <label for="gender">Gender<font color="red">*</font>:</label>
+                <select id="gender" name="gender" >
+                    <option value="">select</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Prefer not Say">Prefer not Say</option>
+                </select>
+                <p class="validation" id="genderVal"> </p>
+                <label for="password">Password<font color="red">*</font>:</label>
+                <input type="password" id="password" name="password">
+                <p class="validation" id="PassVal"> </p>
+                <button class="btn" onclick="formValidate()">Submit</button>
+        </form>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
